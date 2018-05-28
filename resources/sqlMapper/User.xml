@@ -4,7 +4,35 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="test">
+    <!--查询用户-->
     <select id="queryUserById" parameterType="int" resultType="com.afeng.mybatis.pojo.User">
         select * from user where id = #{id}
     </select>
+    <select id="queryUserByUsername" parameterType="string" resultType="com.afeng.mybatis.pojo.User">
+        select * from user where username like #{username}
+    </select>
+    <select id="queryUserByUsername2" parameterType="String" resultType="com.afeng.mybatis.pojo.User">
+        select * from user where username like '%${value}%'
+    </select>
+    <insert id="saveUser" parameterType="com.afeng.mybatis.pojo.User">
+        insert into user(username, birthday, sex, address) values
+        (#{username}, #{birthday}, #{sex}, #{address})
+    </insert>
+    <insert id="saveUser2" parameterType="com.afeng.mybatis.pojo.User">
+        insert into user(username, birthday, sex, address) values
+        (#{username}, #{birthday}, #{sex}, #{address})
+        <selectKey resultType="int" order="AFTER" keyProperty="id">
+            select LAST_INSERT_ID()
+        </selectKey>
+    </insert>
+    <update id="updateUserByUserId" parameterType="com.afeng.mybatis.pojo.User" >
+        update user
+        set username = #{username}
+        where id = #{id}
+    </update>
+
+    <delete id="deleteUserByUserId" parameterType="Integer">
+        delete from user
+        where id = #{id}
+    </delete>
 </mapper>
