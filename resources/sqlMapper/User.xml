@@ -4,7 +4,7 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="test">
-    <select id="queryUserById" parameterType="int" resultType="com.afeng.mybaits.pojo.User">
-        select * from 'user' where id = #{id}
+    <select id="queryUserById" parameterType="int" resultType="com.afeng.mybatis.pojo.User">
+        select * from user where id = #{id}
     </select>
 </mapper>

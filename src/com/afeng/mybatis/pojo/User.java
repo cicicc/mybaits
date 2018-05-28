@@ -1,4 +1,4 @@
-package com.afeng.mybaits.pojo;
+package com.afeng.mybatis.pojo;
 
 import java.io.Serializable;
 import java.util.Date;

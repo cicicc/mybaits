@@ -1,4 +1,4 @@
-package com.afeng.mybaits.test;
+package com.afeng.mybatis.test;
 
 import org.junit.Test;
 
@@ -18,7 +18,7 @@ public class TestJdbc {
             //加载数据库的驱动
             Class.forName("com.mysql.jdbc.Driver");
             //通过驱动管理类获取数据库连接
-            connection = DriverManager.getConnection("jdbc:mysql:///mybaits", "root", "chenfeng980320");
+            connection = DriverManager.getConnection("jdbc:mysql:///mybatis", "root", "chenfeng980320");
             //书写SQL语句
             String sql = "select * from orders";
             //获得语句执行者对象
