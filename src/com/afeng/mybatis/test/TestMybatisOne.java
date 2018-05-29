@@ -13,7 +13,7 @@ import java.io.InputStream;
 import java.util.Date;
 import java.util.List;
 
-public class testMybatisOne {
+public class TestMybatisOne {
 
     /**
      * 在测试代码执行之前执行 是所有mybatis查询中必须要执行的几步骤
@@ -146,7 +146,7 @@ public class testMybatisOne {
     @Test
     public void deleteUserByUserId(){
         SqlSession sqlSession = sqlSessionFactory.openSession();
-        sqlSession.delete("deleteUserByUserId", 10);
+        sqlSession.delete("deleteUserByUserId", 22);
         //session提交以后相当于事务的提交 所以在进行增删改的操作的时候 需要有commit语句 否则更改无法实现
         sqlSession.commit();
         sqlSession.close();
