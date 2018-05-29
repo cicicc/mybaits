@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--用于使用包装类进行用户数据的查询-->
+<mapper namespace="com.afeng.mybatis.mapper.UserMapper">
+    <!--查询用户-->
+    <select id="selectUserByQueryVo" parameterType="QueryVo" resultType="User">
+        select * from USER where id = #{user.id}
+    </select>
+</mapper>

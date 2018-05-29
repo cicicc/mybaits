@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.afeng.mybatis.mapper.UserMapper">
+    <!--查询用户-->
+    <select id="queryUserById" parameterType="int" resultType="User">
+        select * from user where id = #{id}
+    </select>
+    <select id="queryUserByUsername" parameterType="string" resultType="User">
+        select * from user where username like #{username}
+    </select>
+    <select id="queryUserByUsername2" parameterType="String" resultType="User">
+        select * from user where username like '%${value}%'
+    </select>
+    <insert id="saveUser" parameterType="User">
+        insert into user(username, birthday, sex, address) values
+        (#{username}, #{birthday}, #{sex}, #{address})
+    </insert>
+    <insert id="saveUser2" parameterType="User">
+        insert into user(username, birthday, sex, address) values
+        (#{username}, #{birthday}, #{sex}, #{address})
+        <selectKey resultType="int" order="AFTER" keyProperty="id">
+            select LAST_INSERT_ID()
+        </selectKey>
+    </insert>
+
+</mapper>

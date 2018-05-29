@@ -49,5 +49,6 @@ public class UserDaoImpl  implements UserDao{
     public void saveUser(User user) {
         SqlSession sqlSession = sqlSessionFactory.openSession();
         sqlSession.insert("saveUser", user);
+        sqlSession.close();
     }
 }

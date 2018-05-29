@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-
+<!--用于最初的原生dao和初步练习的xml文件-->
 <mapper namespace="test">
     <!--查询用户-->
     <select id="queryUserById" parameterType="int" resultType="com.afeng.mybatis.pojo.User">

@@ -4,7 +4,6 @@ import com.afeng.mybatis.dao.UserDao;
 import com.afeng.mybatis.dao.UserDaoImpl;
 import com.afeng.mybatis.pojo.User;
 import org.apache.ibatis.io.Resources;
-import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.junit.Before;
