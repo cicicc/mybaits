@@ -9,6 +9,7 @@
     <typeAliases>
         <typeAlias type="com.afeng.mybatis.pojo.User" alias="User"/>
         <typeAlias type="com.afeng.mybatis.pojo.QueryVo" alias="QueryVo"/>
+        <typeAlias type="com.afeng.mybatis.pojo.Orders" alias="Orders"/>
     </typeAliases>
     <!-- 和spring整合后 environments配置将废除 -->
     <environments default="development">
@@ -31,5 +32,6 @@
         <mapper resource="sqlMapper/User.xml"/>
         <mapper resource="sqlMapper/UserMapper.xml"/>
         <mapper resource="sqlMapper/User2Mapper.xml"/>
+        <mapper resource="sqlMapper/OrderMapper.xml"/>
     </mappers>
 </configuration>

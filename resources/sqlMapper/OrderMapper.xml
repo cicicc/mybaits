@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.afeng.mybatis.mapper.OrderMapper">
+    <!--resultMap最终还是要映射到具体的pojo类的 type指的就是具体要进行映射的类的类名的-->
+    <resultMap id="orderResultMap" type="Orders">
+        <id property="id" column="id"/>
+        <!--属性其实只需要配置pojo类与数据库不同的地方就可以了-->
+        <result property="userId" column="user_id"/>
+    </resultMap>
+    <resultMap id="orderUserResultMap" type="Orders">
+        <id column="id" property="id"/>
+        <result property="userId" column="user_id"/>
+        <result property="number" column="number"/>
+        <result property="createtime" column="createtime"/>
+        <result property="note" column="note"/>
+        <!--association 配置一对一属性 property 在Order的Pojo类中的User的属性 javaType指定这个属性所对应类的类型 在这里
+            因为在SqlMapConfig.xml 中定义了 所以在这里并不需要写上全路径的
+        -->
+        <association property="user" javaType="User">
+            <!--声明主键 声明user_id 是本表中的数据指向其他表的外键-->
+            <id property="id" column="user_id"/>
+            <!--添加其他需要加入查询结果集中的数据对象-->
+            <result property="username" column="username"/>
+            <result property="address" column="address"/>
+        </association>
+    </resultMap>
+
+    <select id="queryAllOrder" resultMap="orderResultMap" >
+        select id,user_id, number, createtime,note
+        from orders
+    </select>
+    <select id="queryOrderUser" resultMap="orderUserResultMap" >
+        select
+        o.id, o.user_id,
+        o.number, o.createtime,
+        o.note,
+        u.username, u.address
+        from orders  o
+        left join user u
+        on o.user_id = u.id
+    </select>
+</mapper>
